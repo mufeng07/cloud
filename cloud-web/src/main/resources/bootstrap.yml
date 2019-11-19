@@ -11,7 +11,10 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:9400/eureka
-#是否需要权限拉去，默认是true,如果不false就不允许你去拉取配置中心Server更新的内容
+#在Spring Boot升级到2.0.3.RELEASE后需新增配置
+#刷新配置文件url为：http://localhost:1003/actuator/refresh
 management:
-  security:
-    enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: refresh
