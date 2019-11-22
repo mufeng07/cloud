@@ -1,8 +1,8 @@
 server:
-  port: 9402
+  port: 9405
 spring:
   application:
-    name: cloud-web
+    name: cloud-ribbon
 eureka:
   client:
     service-url:

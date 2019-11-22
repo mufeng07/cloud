@@ -1,0 +1,10 @@
+server:
+  port: 9403
+spring:
+  application:
+    name: eureka-service
+#Eureka实例名，集群中根据这里相互识别
+eureka:
+    client:
+      service-url:
+        defaultZone: http://localhost:9400/eureka/

@@ -2,11 +2,16 @@ server:
   port: 9400
 spring:
   application:
-    name: cloud-eureka1
+    name: eureka-service
+#Eureka实例名，集群中根据这里相互识别
 eureka:
+  #客户端
   client:
-    register-with-eureka: false
-    fetch-registry: false
-  server:
-    enable-self-preservation: false
-    eviction-interval-timer-in-ms: 5000
+    #是否开启注册服务，因为这里如果为true表示自己注册自己，而自己就是一个服务注册方，没必要自己注册自己
+    #register-with-eureka: false
+     #是否拉取服务列表，这里我只提供服务给别的服务。
+    #fetch-registry: false
+    #注册中心地址
+    service-url:
+       defaultZone: http://localhost:9403/eureka/
+

@@ -1,20 +1,20 @@
-spring:
-  cloud:
-    config:
-      name: cloud-web
-      profile: dev
-      label: master
-      discovery:
-        enabled: true
-        service-id: cloud-config
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:9400/eureka
-#在Spring Boot升级到2.0.3.RELEASE后需新增配置
-#刷新配置文件url为：http://localhost:1003/actuator/refresh
-management:
-  endpoints:
-    web:
-      exposure:
-        include: refresh
+#spring:
+#  cloud:
+#    config:
+#      name: cloud-web
+#      profile: dev
+#      label: master
+#      discovery:
+#        enabled: true
+#        service-id: cloud-config
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:9400/eureka
+##在Spring Boot升级到2.0.3.RELEASE后需新增配置
+##刷新配置文件url为：http://localhost:1003/actuator/refresh
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: refresh

@@ -1,5 +1,5 @@
 server:
-  port: 9402
+  port: 9404
 spring:
   application:
     name: cloud-web
