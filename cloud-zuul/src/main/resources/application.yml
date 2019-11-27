@@ -1,0 +1,17 @@
+server:
+  port: 9407
+spring:
+  application:
+    name: cloud-zuul
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9400/eureka/
+zuul:
+  routes:
+    cloud-web:
+      path: /web/**
+      serviceId: cloud-web
+    cloud-feign:
+      path: /feign/**
+      serviceId: cloud-feign

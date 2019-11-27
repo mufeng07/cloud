@@ -25,6 +25,7 @@ public class TestController {
 
     @GetMapping("/test2")
     public String test2(HttpServletRequest request){
+        int a=1/0;
         String s=request.getScheme()+"://"+request.getServerName()+":"+port+request.getServletPath();
         return s;
     }

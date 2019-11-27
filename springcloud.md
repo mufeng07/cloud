@@ -71,7 +71,7 @@ Eureka客户端，途中的即服务提供者，主要处理服务的注册和�
 ```xml
 <dependency>
     <groupId>org.springframework.cloud</groupId>
-    <artifactId>spring-boot-starter-netflix-eureka-client</artifactId>
+    <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 </dependency>
 ```
 
@@ -522,7 +522,7 @@ remoteRegionFetchThreadPoolSize = 20;
 
 远程区域注册信息线程数。
 
-###4.Eureka Server注册中心仪表盘配置**
+###4.Eureka Server注册中心仪表盘配置
 
 注册中心仪表盘的配置主要是控制注册中心的可视化展示。以eureka.dashboard.xxx的格式配置。
 
@@ -559,6 +559,22 @@ public class EurekaRibbonConfig {
     }
 }
 ```
+
+## 重试机制
+
+```yaml
+spring:
+  application:
+    name: cloud-ribbon
+  cloud:
+    loadbalancer:
+      retry:
+        enabled: true #开启重试机制
+#hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds
+#断路器的超时时间需要大于Ribbon的超时时间，不然不会触发重试
+```
+
+
 
 ## RestTemplate详解
 
@@ -640,6 +656,13 @@ void delete(URI url)
 
 # 三、Hystrix（请求熔断与服务降级）
 
+```xml
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+</dependency>
+```
+
 ### Hystrix特性
 
 　　1.请求熔断： 当Hystrix Command请求后端服务失败数量超过一定比例(默认50%), 断路器会切换到开路状态(Open). 这时所有请求会直接失败而不会发送到后端服务. 断路器保持在开路状态一段时间后(默认5秒), 自动切换到半开路状态(HALF-OPEN).
@@ -660,6 +683,13 @@ void delete(URI url)
 
 # 四、feign(声明式服务调用)
 
+```xml
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-openfeign</artifactId>
+</dependency>
+```
+
 Feign具有如下特性：
 
 - 可插拔的注解支持，包括Feign注解和JAX-RS注解;
@@ -669,6 +699,13 @@ Feign具有如下特性：
 - 支持HTTP请求和响应的压缩
 
 # 五、zuul（网关服务）
+
+```xml
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
+</dependency>
+```
 
 Zuul可以通过加载动态过滤机制，从而实现以下各项功能：
 
@@ -688,5 +725,18 @@ Zuul可以通过加载动态过滤机制，从而实现以下各项功能：
 
 # 六、Config分布式配置管理
 
+```xml
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-config-server</artifactId>
+</dependency>
+```
+
+
+
 # 七、bus消息总线
+
+# 八、Stream消息驱动
+
+# 九、Sleuth分布式服务跟踪
 

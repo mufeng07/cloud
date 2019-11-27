@@ -1,0 +1,9 @@
+server:
+  port: 9406
+spring:
+  application:
+    name: cloud-feign
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9400/eureka
