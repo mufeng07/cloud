@@ -11,7 +11,5 @@ eureka:
     register-with-eureka: false
      #是否拉取服务列表，这里我只提供服务给别的服务。
     fetch-registry: false
-    #注册中心地址
-    service-url:
-       defaultZone: http://localhost:9400/eureka/
+
 
