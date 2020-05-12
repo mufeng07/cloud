@@ -20,7 +20,13 @@ public class TestController {
     private String port;
     @GetMapping("/test1")
     public String test1(){
-        return "hello ";
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            System.out.println(123);
+        }
+        System.out.println(1234);
+        return "hello";
     }
 
     @GetMapping("/test2")

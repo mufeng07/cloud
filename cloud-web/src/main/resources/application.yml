@@ -2,7 +2,7 @@ server:
   port: 9402
 spring:
   application:
-    name: cloud-web
+    name: cloud-web1
 eureka:
   client:
     service-url:

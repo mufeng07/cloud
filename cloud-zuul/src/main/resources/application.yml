@@ -8,10 +8,22 @@ eureka:
     service-url:
       defaultZone: http://localhost:9400/eureka/
 zuul:
+  host:
+    connect-timeout-millis: 30000
+    socket-timeout-millis: 30000
   routes:
-    cloud-web:
-      path: /web/**
-      serviceId: cloud-web
+    # 给服务配置路由
     cloud-feign:
       path: /feign/**
-      serviceId: cloud-feign
+  ignored-services: cloud-feign
+  prefix: /proxy
+  #配置过滤敏感的请求头信息，设置为空就不会过滤
+  sensitive-headers: Cookie,Set-Cookie,Authorization
+  #设置为true重定向是会添加host请求头
+  add-host-header: true
+  filterClassName:
+    filter:
+      disable: true
+ribbon:
+  ReadTimeout: 30000
+  ConnectTimeout: 30000
